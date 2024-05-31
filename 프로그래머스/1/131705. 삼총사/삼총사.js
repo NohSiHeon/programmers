@@ -6,7 +6,6 @@ function solution(number) {
             for(let k = j + 1; k < number.length; k++){
                 let sum = 0;
                 sum = number[i] + number[j] + number[k];
-                console.log(sum);
                 answer += sum === 0 ? 1 : 0;
             }
         }
