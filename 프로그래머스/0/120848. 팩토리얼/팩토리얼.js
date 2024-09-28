@@ -8,7 +8,6 @@ function factorial(num){
 function solution(n) {
     let answer = 0;
     for(let i = 1; i <= 11; i++){
-        console.log(i);
         if(n < factorial(i)){
             answer = i - 1;
             return answer;
