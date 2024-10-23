@@ -3,12 +3,11 @@ function solution(polynomial) {
     const arrX = [];
     const arrNum = [];
     const splitPolynomial = polynomial.split(" ");
-    console.log(splitPolynomial);
+    
     for(let i = 0; i < splitPolynomial.length; i+=2){
         if(splitPolynomial[i].includes("x")){
             if(splitPolynomial[i].length > 1){
                 let splitValue = splitPolynomial[i].split("x");
-                console.log(splitValue);
                 arrX.push(+splitValue[0]);
             } else {
                 arrX.push(1);
@@ -21,8 +20,7 @@ function solution(polynomial) {
     const x = arrX.reduce((acc, cur) => acc + cur, 0);
     // 배열 arrNum의 요소 값을 모두 합침
     const num = arrNum.reduce((acc, cur) => acc + cur, 0);
-    console.log("x:", x);
-    console.log("num:", num);
+
     // x값 계산
     // x가 1 초과일 경우
     if(x > 1){
