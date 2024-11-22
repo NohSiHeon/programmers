@@ -1,16 +1,17 @@
-// function solution(phone_number) {
-//     let answer = '';
-//     for(let i = 0; i < phone_number.length - 4; i++){
-//         answer += phone_number[i].replace(phone_number[i], "*");
-//     }
-//     answer = answer + phone_number.substring(phone_number.length - 4);
-
-//     return answer;
-// }
-
 function solution(phone_number) {
     let answer = '';
-    answer = "*".repeat(phone_number.length - 4) + phone_number.substring(phone_number.length - 4);
+    
+    // 배열로 변환
+    phone_number = phone_number.split("");
+    
+    // 마지막 4자리 전까지만 각 자리를 *로 변경
+    for(let i = 0; i < phone_number.length - 4; i++){
+        phone_number[i] = "*";
+    }
+    
+    // 배열의 요소를 다 합쳐서 문자열로 변환
+    answer = phone_number.join("");
+
 
     return answer;
 }
