@@ -1,8 +1,9 @@
 function solution(absolutes, signs) {
-    let result = 0;
-    for (let i = 0; i < signs.length; i++) {
-        result = signs[i] === false ? result - absolutes[i] : result + absolutes[i];
-
+    let answer = 0;
+    
+    for(let i = 0; i < absolutes.length; i++){
+        // signs의 요소가 true이면 양수, false이면 음수 더하기
+        answer += signs[i] == true ? +absolutes[i]: -absolutes[i];
     }
-    return result;
+    return answer;
 }
