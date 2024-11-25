@@ -1,17 +1,7 @@
 function solution(s) {
-    let answer = false;
-    const numS = parseInt(s);
-    
-    // 문자열 s의 길이가 4 혹은 6 이고,
-    // 정수로 변환한 numS 와 s의 값이 같은지 비교
-    // 같으면 문자가 없다는 뜻, 같지 않으면 숫자
-    if((s.length == 4 || s.length == 6) && numS == s){
-        // if() 안이 true이면 answer = true
-        answer = true;
-        
-        // 아니면 false
-    } else {
-        answer = false;
-    }
+    let answer = true;
+    // 문자열의 길이가 4혹은 6이면서, 문자열s에 문자가 있는지 parseInt로 확인
+    // parseInt는 문자를 숫자로 변환하는데, 숫자형 문자만 변환이 가능하기 때문에 숫자형 문자가 아니면 같을 수 없음
+    answer = (s.length == 4 || s.length == 6) && s == parseInt(s) ? true : false;
     return answer;
 }
