@@ -1,17 +1,13 @@
 function solution(n) {
     let answer = 0;
-    let num = 0;
+    // 3진수로 변환
+    n = n.toString(3);
     
-    let baseThree = n.toString(3).split('').reverse();
-    let threeToTen = baseThree.map(Number);
-    console.log(threeToTen);
-    // console.log(threeToTen.length);
+    // 순서 뒤집기
+    n = n.split("").reverse().join("");
     
-    for(let i = threeToTen.length - 1; i >= 0; i--){
-       answer += threeToTen[i] * (3**num);
-        num++;
-    }
-
-
+    // 3진수를 10진수로 변환
+    answer = parseInt(n, 3);
+    
     return answer;
 }
