@@ -1,25 +1,19 @@
 function solution(numbers) {
-    let answer = [];
-    let newArr = [];
+    let answer = new Set();
+    let sum = 0;
+    // 오름차순으로 담겨야하기 때문에 처음부터 오름차순 정렬
     numbers.sort((a, b) => a - b);
-    // numbers 배열에서 두 개의 수를 뽑아서 더하기
-    for(let i = 0 ; i < numbers.length; i++){
-        for(let j = 1; j < numbers.length; j++){
-            if(i === j){
-                continue;
-            }
-             answer.push(numbers[i] + numbers[j]);
+
+    
+    for(let i = 0; i < numbers.length; i++){
+        for(let j = i + 1; j < numbers.length; j++){
+            // 두 요소의 합
+            sum = numbers[i] + numbers[j];
+
+            // 이미 있는 값이 아닐 경우에만 추가
+            answer.add(sum);
         }
     }
-    
-    // 중복 값 제거
-    // answer 배열 순회
-    answer.forEach(e => {
-        // 만약 newArr 배열에 answer 요소 값이 없으면 newArr 배열에 요소 값 추가
-        if(!newArr.includes(e)){
-            newArr.push(e);
-        }
-    });
 
-    return newArr.sort((a, b) => a - b);
+    return [...answer].sort((a, b) => a - b);
 }
