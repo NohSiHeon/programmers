@@ -1,16 +1,15 @@
 function solution(a, b, n) {
     let answer = 0;
-    
-    // 반납할 수 있는 빈병 n개
-    // 빈 병을 반납 했을 때 1병 돌려받을 수 있는 최소 기준 a개
-    while(n / a >= 1){
-        
-        // 돌려받은 개수 누적
-        // n / a 값이 1이면 1 * b, 2이면 2 * b
-        // b 는 한번 반납했을 때 돌려받을 수 있는 콜라 병의 수
+
+    // a: 콜라를 받기 위한 최소 빈 병 개수
+    // b: 교환할 때 받는 콜라 병 개수
+    // n: 현재 가지고 있는 빈 병 개수
+    while(n >= a){
+        // 현재 가지고 있는 빈 병으로 받을 수 있는 콜라 병 개수
         answer += Math.floor(n / a) * b;
-        // 반납 하고 나서도 다시 반납할 수 있는 병의 수
-        n = Math.floor(n / a) * b + n % a;
+        // 새로운 빈 병 개수 계산 (남은 병 + 받은 콜라 병 개수)
+        n = Math.floor(n % a) + Math.floor(n / a) * b;
+        
     }
     return answer;
 }
