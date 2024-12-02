@@ -1,17 +1,14 @@
 function solution(s) {
-    let answer = s;
-    const str = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    let answer = 0;
+    const num = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9 };
     
-    for(let i = 0; i < str.length; i++){
-        
-        // split(): string 객체를 ()안에 들어가는 것을 이용하여 문자열을 나누고 배열로 반환
-        // () 안에 들어가는 것이 문자열 안에 있는 문자와 같다면
-        // 배열에서 그 문자는 사라지고 공백과 나머지 문자열을 배열로 반환
-        let arr = answer.split(str[i]);
-        
-        // join(): 배열의 모든 요소를 쉼표나 지정된 구분 문자열로 구분하여 연결한 새 문자열을 만들어 반환
-        answer = arr.join(i);
+    // 객체의 각 요소를 이루는 원소에 접근
+    for(const [key, value] of Object.entries(num)){
+        // 문자열에 key 값이 포함되어 있을 경우 key 문자열을 value로 바꿈
+        if(s.includes(key)){
+            s = s.replaceAll(key, value);
+        }
     }
-    
-    return parseInt(answer);
+    answer = +s;
+    return answer;
 }
